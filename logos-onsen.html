@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>邏各斯煙霧溫泉旅館｜失眠夜遊樂園官方住宿</title>
+  <meta name="description" content="邏各斯煙霧溫泉旅館 — 失眠夜遊樂園官方住宿。令亞利麻女神流連忘返的歷史、大自然與文化交匯之處。過百種天然煙霧溫泉套餐，萬聖夜行祭期間樂園會員享85折。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600&family=Noto+Serif+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f5f0;
+      --bg-soft: #eef3eb;
+      --bg-dark: #1a2118;
+      --bg-card: #ffffff;
+      --text: #1a2118;
+      --text-muted: #5c6658;
+      --text-light: #f7f5f0;
+      --accent: #7a9a5c;
+      --accent-hover: #6a8a4c;
+      --accent-soft: rgba(122, 154, 92, 0.12);
+      --border: rgba(26, 33, 24, 0.08);
+      --radius: 12px;
+      --radius-lg: 20px;
+      --shadow: 0 12px 40px rgba(26, 33, 24, 0.08);
+      --font-serif: 'Noto Serif TC', Georgia, serif;
+      --font-sans: 'Noto Sans TC', system-ui, sans-serif;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      font-weight: 400;
+      overflow-x: hidden;
+    }
+
+    img { max-width: 100%; display: block; }
+    a { text-decoration: none; color: inherit; }
+
+    .container {
+      width: min(1140px, 90%);
+      margin: 0 auto;
+    }
+
+    /* ===== TOP BAR ===== */
+    .top-bar {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      text-align: center;
+      font-size: 0.8rem;
+      letter-spacing: 0.06em;
+      padding: 0.55rem 1rem;
+      font-weight: 300;
+    }
+
+    /* ===== NAV ===== */
+    nav {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1.25rem 0;
+      background: transparent;
+      transition: background 0.3s, backdrop-filter 0.3s, border-color 0.3s;
+      border-bottom: 1px solid transparent;
+    }
+    nav.scrolled {
+      position: fixed;
+      background: rgba(247, 245, 240, 0.94);
+      backdrop-filter: blur(14px);
+      border-bottom-color: var(--border);
+    }
+    nav .container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+   .logo {
+      display: flex;
+      align-items: center;
+      line-height: 0;
+    }
+    .logo img {
+      height: 40px;
+      width: auto;
+      display: block;
+      transition: filter 0.3s;
+    }
+    /* 白 logo 在淺色導覽列時反轉成深色 */
+    nav.scrolled .logo img {
+      filter: invert(1) brightness(0.2);
+    }
+    .nav-links a {
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(247,245,240,0.8);
+      font-weight: 500;
+      transition: color 0.25s;
+    }
+    .nav-links a:hover { color: #fff; }
+    nav.scrolled .nav-links a { color: var(--text-muted); }
+    nav.scrolled .nav-links a:hover { color: var(--text); }
+    .nav-cta {
+      background: var(--accent) !important;
+      color: #fff !important;
+      padding: 0.55rem 1.25rem;
+      border-radius: 999px;
+      letter-spacing: 0.06em !important;
+      font-size: 0.8rem !important;
+      transition: background 0.25s, transform 0.2s !important;
+    }
+    .nav-cta:hover {
+      background: var(--accent-hover) !important;
+      transform: translateY(-1px);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      background: var(--bg-dark);
+      overflow: visible;
+      padding-bottom: 0;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+      border-radius: 0 0 0 0;
+    }
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+    .hero-bg::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg, rgba(18,22,16,0.78) 0%, rgba(18,22,16,0.5) 48%, rgba(18,22,16,0.32) 100%);
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: min(1140px, 90%);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.2fr 0.9fr;
+      gap: 3rem;
+      align-items: end;
+      padding: 7rem 0 3.5rem;
+      flex: 1;
+    }
+    .hero-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(247,245,240,0.65);
+      margin-bottom: 1.25rem;
+      font-weight: 400;
+    }
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+      font-weight: 500;
+      line-height: 1.18;
+      color: var(--text-light);
+      margin-bottom: 0.5rem;
+    }
+    .hero-right {
+      color: rgba(247,245,240,0.85);
+      font-size: 1.05rem;
+      font-weight: 300;
+      line-height: 1.75;
+      padding-bottom: 0.35rem;
+    }
+    .hero-right p { margin-bottom: 1.75rem; }
+
+    /* Booking bar */
+    .booking-bar-wrap {
+      position: relative;
+      z-index: 3;
+      width: min(1140px, 90%);
+      margin: -2.5rem auto 0;
+      padding-bottom: 0;
+    }
+    .booking-bar {
+      display: grid;
+      grid-template-columns: 1.2fr 1.2fr 0.9fr 0.9fr auto;
+      gap: 0;
+      align-items: stretch;
+      background: #fff;
+      border-radius: 16px;
+      box-shadow: 0 16px 50px rgba(26, 33, 24, 0.18);
+      overflow: hidden;
+    }
+    .booking-field {
+      padding: 1rem 1.25rem 1.1rem;
+      border-right: 1px solid rgba(26, 33, 24, 0.08);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      min-width: 0;
+    }
+    .booking-field:last-of-type { border-right: none; }
+    .booking-field label {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+      letter-spacing: 0.04em;
+      margin-bottom: 0.35rem;
+      font-weight: 400;
+    }
+    .booking-field input[type="date"] {
+      border: none;
+      outline: none;
+      font-family: var(--font-sans);
+      font-size: 1rem;
+      font-weight: 500;
+      color: var(--text);
+      background: transparent;
+      width: 100%;
+      cursor: pointer;
+      color-scheme: light;
+    }
+    .booking-field input[type="date"]::-webkit-calendar-picker-indicator {
+      cursor: pointer;
+      opacity: 0.55;
+    }
+    .guest-control {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+    .guest-control button {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(122, 154, 92, 0.45);
+      background: #fff;
+      color: var(--accent);
+      font-size: 1rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s, color 0.2s, border-color 0.2s;
+      padding: 0;
+      flex-shrink: 0;
+    }
+    .guest-control button:hover {
+      background: var(--accent);
+      color: #fff;
+      border-color: var(--accent);
+    }
+    .guest-control button:disabled {
+      opacity: 0.35;
+      cursor: not-allowed;
+    }
+    .guest-control button:disabled:hover {
+      background: #fff;
+      color: var(--accent);
+      border-color: rgba(122, 154, 92, 0.45);
+    }
+    .guest-control .count {
+      font-size: 1.05rem;
+      font-weight: 500;
+      color: var(--text);
+      min-width: 1.2em;
+      text-align: center;
+    }
+    .booking-submit {
+      display: flex;
+      align-items: center;
+      padding: 0.75rem 1rem;
+      background: #fff;
+    }
+    .booking-submit .btn {
+      white-space: nowrap;
+      padding: 0.85rem 1.6rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 1.9rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      transition: transform 0.2s, background 0.25s, box-shadow 0.25s;
+      border: none;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+    }
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(122,154,92,0.35);
+    }
+    .btn-outline {
+      background: transparent;
+      color: var(--text-light);
+      border: 1px solid rgba(247,245,240,0.35);
+    }
+    .btn-outline:hover {
+      background: rgba(247,245,240,0.08);
+      transform: translateY(-2px);
+    }
+    .hero-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* ===== SECTION COMMON ===== */
+    section { padding: 6rem 0; }
+    .section-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+    .section-title {
+      font-family: var(--font-serif);
+      font-size: clamp(1.9rem, 3.8vw, 2.8rem);
+      font-weight: 500;
+      line-height: 1.25;
+      color: var(--text);
+    }
+    .section-desc {
+      color: var(--text-muted);
+      font-size: 1.05rem;
+      font-weight: 300;
+      max-width: 520px;
+      line-height: 1.8;
+    }
+
+    /* ===== ABOUT ===== */
+    .about {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      padding: 5.5rem 0 6rem;
+    }
+    .about .section-label { color: var(--accent); }
+    .about .section-title { color: var(--text-light); }
+    .about-inner {
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .about-inner p {
+      color: rgba(247,245,240,0.7);
+      font-weight: 300;
+      font-size: 1.08rem;
+      margin-bottom: 1.2rem;
+      line-height: 1.9;
+    }
+    .about-inner .highlight {
+      font-family: var(--font-serif);
+      font-size: 1.4rem;
+      color: var(--accent);
+      margin: 1.5rem 0 1rem;
+      font-weight: 500;
+    }
+    .about-inner .section-title {
+      margin-bottom: 0.5rem;
+    }
+
+    /* ===== PACKAGES ===== */
+    .packages {
+      background: #fff;
+    }
+    .packages-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: end;
+      margin-bottom: 3.5rem;
+    }
+    .packages-header .section-desc {
+      justify-self: end;
+      text-align: right;
+    }
+    .package-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      border-top: 1px solid rgba(26, 33, 24, 0.08);
+      border-left: 1px solid rgba(26, 33, 24, 0.08);
+    }
+    .package-item {
+      text-align: center;
+      padding: 3.25rem 2.5rem;
+      border-right: 1px solid rgba(26, 33, 24, 0.08);
+      border-bottom: 1px solid rgba(26, 33, 24, 0.08);
+      background: #fff;
+      transition: background 0.3s;
+    }
+    .package-item:hover {
+      background: #fafbf8;
+    }
+    .package-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(122, 154, 92, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: var(--accent);
+    }
+    .package-icon svg {
+      width: 28px;
+      height: 28px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 1.5;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+    .package-item h3 {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+      line-height: 1.35;
+    }
+    .package-item .package-tag {
+      display: block;
+      font-size: 0.72rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+    .package-item p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      font-weight: 300;
+      line-height: 1.75;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    /* ===== HALLOWEEN ===== */
+    .halloween {
+      background: var(--bg);
+    }
+    .halloween-card {
+      background: var(--bg-dark);
+      border-radius: 24px;
+      padding: 3.5rem 3.5rem;
+      display: grid;
+      grid-template-columns: 1.3fr 0.9fr;
+      gap: 3rem;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .halloween-card::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -15%;
+      width: 50%;
+      height: 80%;
+      background: radial-gradient(circle, rgba(122,154,92,0.18), transparent 65%);
+      pointer-events: none;
+    }
+    .halloween-badge {
+      display: inline-block;
+      font-size: 0.78rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.1rem;
+      font-weight: 500;
+    }
+    .halloween-card h2 {
+      font-family: var(--font-serif);
+      font-size: clamp(1.7rem, 3.2vw, 2.4rem);
+      font-weight: 500;
+      color: var(--text-light);
+      line-height: 1.3;
+      margin-bottom: 1.25rem;
+    }
+    .halloween-card h2 span {
+      color: var(--accent);
+    }
+    .halloween-card p {
+      color: rgba(247,245,240,0.65);
+      font-weight: 300;
+      font-size: 1.02rem;
+      margin-bottom: 1rem;
+      line-height: 1.8;
+    }
+    .discount-box {
+      background: rgba(122,154,92,0.12);
+      border: 1px solid rgba(122,154,92,0.3);
+      border-radius: var(--radius-lg);
+      padding: 2rem 1.5rem;
+      text-align: center;
+    }
+    .discount-box .rate {
+      font-family: var(--font-serif);
+      font-size: 3.4rem;
+      font-weight: 600;
+      color: var(--accent);
+      line-height: 1;
+    }
+    .discount-box .rate span {
+      font-size: 1.4rem;
+      font-weight: 500;
+    }
+    .discount-box .note {
+      font-size: 0.88rem;
+      color: rgba(247,245,240,0.55);
+      margin-top: 0.6rem;
+      font-weight: 300;
+    }
+    .member-note {
+      margin-top: 1.75rem;
+      color: rgba(247,245,240,0.75) !important;
+      font-size: 0.98rem !important;
+    }
+    .member-note strong {
+      color: var(--accent);
+      font-weight: 500;
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--bg-dark);
+      color: var(--text-light);
+      padding: 4rem 0 2.5rem;
+      text-align: center;
+    }
+    footer .logo {
+      display: inline-flex;
+      justify-content: center;
+      margin-bottom: 1rem;
+    }
+    footer .logo img {
+      height: 48px;
+      filter: none;
+    }
+    footer p {
+      color: rgba(247,245,240,0.5);
+      font-size: 0.9rem;
+      font-weight: 300;
+      margin-bottom: 0.35rem;
+    }
+    footer .copy {
+      margin-top: 2rem;
+      font-size: 0.78rem;
+      opacity: 0.45;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .hero-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 5rem 0 4rem;
+      }
+      .hero-right { max-width: 480px; }
+      .packages-header,
+      .halloween-card {
+        grid-template-columns: 1fr;
+      }
+      .package-grid {
+        grid-template-columns: 1fr;
+        border-left: none;
+      }
+      .package-item {
+        border-right: none;
+        padding: 2.75rem 1.5rem;
+      }
+      .packages-header .section-desc {
+        justify-self: start;
+        text-align: left;
+      }
+      .halloween-card { padding: 2.5rem 1.75rem; }
+      .hero-content {
+        align-items: center;
+        padding-bottom: 2.5rem;
+      }
+      .booking-bar {
+        grid-template-columns: 1fr 1fr;
+      }
+      .booking-field {
+        border-right: none;
+        border-bottom: 1px solid rgba(26, 33, 24, 0.08);
+      }
+      .booking-submit {
+        grid-column: 1 / -1;
+        padding: 1rem 1.25rem 1.25rem;
+      }
+      .booking-submit .btn {
+        width: 100%;
+        justify-content: center;
+      }
+      .booking-bar-wrap {
+        margin-top: -1.5rem;
+        margin-bottom: 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero { min-height: auto; }
+      .btn { width: 100%; justify-content: center; }
+      .hero-actions { flex-direction: column; }
+      .booking-bar {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ===== SCROLL FADE-IN ===== */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.85s ease, transform 0.85s ease;
+    }
+    .fade-in.is-visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-in-delay-1 { transition-delay: 0.12s; }
+    .fade-in-delay-2 { transition-delay: 0.24s; }
+    .fade-in-delay-3 { transition-delay: 0.36s; }
+    .fade-in-delay-4 { transition-delay: 0.48s; }
+
+    /* Hero starts visible (already on screen) */
+    .hero .fade-in {
+      opacity: 1;
+      transform: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="top-bar">
+    失眠夜遊樂園官方住宿 · 萬聖夜行祭期間會員享 85 折
+  </div>
+
+  <!-- HERO -->
+  <section class="hero" id="hero">
+    <!-- 導覽列疊在 Hero 上（與附件相同） -->
+    <nav id="navbar">
+      <div class="container">
+        <a href="#hero" class="logo">
+  <img src="https://raw.githubusercontent.com/tldrkiki/logos-onsen-hotel/refs/heads/main/park-logo_white.png" alt="邏各斯煙霧溫泉旅館">
+</a>
+        <ul class="nav-links">
+          <li><a href="#about">關於旅館</a></li>
+          <li><a href="#packages">溫泉套餐</a></li>
+          <li><a href="#halloween">萬聖特惠</a></li>
+          <li><a href="#halloween" class="nav-cta">會員 85 折</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- ★ 在此替換為你的溫泉旅館大圖 ★ -->
+    <div class="hero-bg">
+      <img src="https://raw.githubusercontent.com/tldrkiki/logos-onsen-hotel/refs/heads/main/logos-onsen-hotel.JPG" alt="邏各斯煙霧溫泉旅館">
+    </div>
+
+    <div class="hero-content">
+      <div>
+        <p class="hero-label">失眠夜遊樂園官方住宿</p>
+        <h1>邏各斯<br>煙霧溫泉旅館</h1>
+      </div>
+      <div class="hero-right">
+        <p>歷史、大自然與文化交匯之處<br/>令亞利麻女神流連忘返的住宿體驗</p>
+        <div class="hero-actions">
+          <a href="#packages" class="btn btn-primary">探索溫泉套餐</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BOOKING BAR -->
+  <div class="booking-bar-wrap">
+    <form class="booking-bar" id="bookingForm" action="#" method="get">
+      <div class="booking-field">
+        <label for="checkin">入住日期</label>
+        <input type="date" id="checkin" name="checkin" required>
+      </div>
+      <div class="booking-field">
+        <label for="checkout">退房日期</label>
+        <input type="date" id="checkout" name="checkout" required>
+      </div>
+      <div class="booking-field">
+        <label>成人</label>
+        <div class="guest-control">
+          <button type="button" id="adultMinus" aria-label="減少成人">−</button>
+          <span class="count" id="adultCount">1</span>
+          <button type="button" id="adultPlus" aria-label="增加成人">+</button>
+        </div>
+        <input type="hidden" name="adults" id="adultsInput" value="1">
+      </div>
+      <div class="booking-field">
+        <label>小童 (0至11歲)</label>
+        <div class="guest-control">
+          <button type="button" id="childMinus" aria-label="減少小童">−</button>
+          <span class="count" id="childCount">0</span>
+          <button type="button" id="childPlus" aria-label="增加小童">+</button>
+        </div>
+        <input type="hidden" name="children" id="childrenInput" value="0">
+      </div>
+      <div class="booking-submit">
+        <button type="submit" class="btn btn-primary">查詢空房</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- ABOUT -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-inner fade-in">
+        <p class="section-label">About the Inn</p>
+        <h2 class="section-title">渾然天成的煙霧溫泉</h2>
+        <p class="highlight">連續二十年高票入選「邏各斯最出色景點」</p>
+        <p>一百種不同的氣味和質感、全天然無雜質、充滿營養的煙霧<br/>來自邏各斯最壯麗的山脈——轟隆轟隆山</p>
+        <p>人間伊甸，莫過於此。蒸氣繚繞之間，歷史的痕跡、自然的呼吸與文化的記憶交織成仙境般的療癒空間，讓每一位遊牧人都能在這座五層日式旅館裡感受一場溫潤身心的洗滌之旅</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACKAGES -->
+  <section class="packages" id="packages">
+    <div class="container">
+      <div class="packages-header fade-in">
+        <div>
+          <p class="section-label">Onsen Packages</p>
+          <h2 class="section-title">自選溫泉套餐</h2>
+        </div>
+        <p class="section-desc">過百種名貴材料任君選擇，依你的需求調配專屬煙霧體驗</p>
+      </div>
+
+      <div class="package-grid">
+        <article class="package-item fade-in">
+          <div class="package-icon">
+            <!-- brain / insight -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3a5 5 0 0 0-4.9 4A4.5 4.5 0 0 0 4 11.5c0 1.5.7 2.8 1.8 3.6V18a2 2 0 0 0 2 2h1.5"/>
+              <path d="M12 3a5 5 0 0 1 4.9 4A4.5 4.5 0 0 1 20 11.5c0 1.5-.7 2.8-1.8 3.6V18a2 2 0 0 1-2 2H14.5"/>
+              <path d="M9.5 14.5c.8.6 1.6.9 2.5.9s1.7-.3 2.5-.9"/>
+              <path d="M12 8v4"/>
+            </svg>
+          </div>
+          <span class="package-tag">智商提升</span>
+          <h3>梁子力獸眼淚靈丹</h3>
+          <p>失眠鎮珍奇之最「梁子力獸」眼淚提煉而成<br/>幫助思緒清明、靈感湧現</p>
+        </article>
+
+        <article class="package-item fade-in fade-in-delay-1">
+          <div class="package-icon">
+            <!-- lotus / flower -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 20c0-4 2-7 2-10a2 2 0 1 0-4 0c0 3 2 6 2 10"/>
+              <path d="M12 10c-2-2-5-2.5-7-1 1 2.5 3.5 4 7 4"/>
+              <path d="M12 10c2-2 5-2.5 7-1-1 2.5-3.5 4-7 4"/>
+              <path d="M9 13c-2.5.5-4.5 2-5 4 2.5.5 4.5-.5 5-2"/>
+              <path d="M15 13c2.5.5 4.5 2 5 4-2.5.5-4.5-.5-5-2"/>
+            </svg>
+          </div>
+          <span class="package-tag">跳唱進步神速</span>
+          <h3>天山鍾雪蓮</h3>
+          <p>於失眠鎮氣溫最低的地區搜集的蓮花<br/>為身體注入清冽能量，讓表現更上一層樓</p>
+        </article>
+
+        <article class="package-item fade-in fade-in-delay-2">
+          <div class="package-icon">
+            <!-- water drop / spa -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3c0 0-6 7-6 11a6 6 0 0 0 12 0c0-4-6-11-6-11z"/>
+              <path d="M12 16.5a2.5 2.5 0 0 0 0-5"/>
+            </svg>
+          </div>
+          <span class="package-tag">美白護膚</span>
+          <h3>靈魂之水</h3>
+          <p>全邏各斯最清澈的山水蒸餾而成<br/>白色煙霧溫柔呵護肌膚，重現透亮光澤</p>
+        </article>
+
+        <article class="package-item fade-in fade-in-delay-3">
+          <div class="package-icon">
+            <!-- soft cloud / calm -->
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 16a4 4 0 0 1 .5-7.9A5.5 5.5 0 0 1 18 10a3.5 3.5 0 0 1-.5 6.9H7z"/>
+              <path d="M8 19h8M10 21.5h4"/>
+            </svg>
+          </div>
+          <span class="package-tag">忘記煩惱</span>
+          <h3>士多啤梨冬甩粉紅煙霧</h3>
+          <p>由士多啤梨冬甩蒸發出的香噴噴粉紅色煙霧<br/>讓煩惱隨蒸氣一同消散</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- HALLOWEEN -->
+  <section class="halloween" id="halloween">
+    <div class="container">
+      <div class="halloween-card fade-in">
+        <div>
+          <p class="halloween-badge">期間限定 · 萬聖夜行祭</p>
+          <h2>樂園會員入住<br>即享 <span>85 折</span> 優惠</h2>
+          <p>一年一度萬聖夜行，這個十月入住邏各斯煙霧溫泉旅館，沉浸天然煙霧療癒的同時，以會員身分盡享節日禮遇。</p>
+          <p class="member-note">加入<strong>奇跡處處通</strong>，成為進階夜間遊牧人，盡享豐富禮遇！</p>
+          <div style="margin-top: 1.75rem;">
+            <a href="#" class="btn btn-primary">立即加入會員 · 解鎖 85 折</a>
+          </div>
+        </div>
+        <div class="fade-in fade-in-delay-1">
+          <div class="discount-box">
+            <div class="rate">85<span>折</span></div>
+            <div class="note">樂園會員 · 活動期間入住適用</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <a href="#hero" class="logo">
+        <img src="https://raw.githubusercontent.com/tldrkiki/logos-onsen-hotel/refs/heads/main/park-logo_white.png" alt="邏各斯煙霧溫泉旅館">
+      </a>
+      <p>邏各斯煙霧溫泉旅館</p>
+      <p>失眠夜遊樂園官方住宿</p>
+      <p class="copy">© 失眠夜遊樂園 · Logos Smoke Onsen Inn</p>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      // Navbar: transparent on hero, solid when scrolled
+      const nav = document.getElementById('navbar');
+      const hero = document.getElementById('hero');
+      function updateNav() {
+        if (!nav || !hero) return;
+        const threshold = hero.offsetHeight - 80;
+        nav.classList.toggle('scrolled', window.scrollY > threshold);
+      }
+      window.addEventListener('scroll', updateNav, { passive: true });
+      updateNav();
+
+      // Booking bar: default dates + guest steppers
+      const checkin = document.getElementById('checkin');
+      const checkout = document.getElementById('checkout');
+      if (checkin && checkout) {
+        const today = new Date();
+        const tomorrow = new Date(today);
+        tomorrow.setDate(tomorrow.getDate() + 1);
+        const fmt = (d) => d.toISOString().slice(0, 10);
+        checkin.value = fmt(today);
+        checkin.min = fmt(today);
+        checkout.value = fmt(tomorrow);
+        checkout.min = fmt(tomorrow);
+        checkin.addEventListener('change', () => {
+          const next = new Date(checkin.value);
+          next.setDate(next.getDate() + 1);
+          checkout.min = fmt(next);
+          if (checkout.value <= checkin.value) checkout.value = fmt(next);
+        });
+      }
+
+      function setupStepper(minusId, plusId, countId, inputId, min, max) {
+        const minus = document.getElementById(minusId);
+        const plus = document.getElementById(plusId);
+        const countEl = document.getElementById(countId);
+        const input = document.getElementById(inputId);
+        if (!minus || !plus || !countEl || !input) return;
+        let value = parseInt(input.value, 10) || min;
+        function render() {
+          countEl.textContent = value;
+          input.value = value;
+          minus.disabled = value <= min;
+          plus.disabled = value >= max;
+        }
+        minus.addEventListener('click', () => { if (value > min) { value--; render(); } });
+        plus.addEventListener('click', () => { if (value < max) { value++; render(); } });
+        render();
+      }
+      setupStepper('adultMinus', 'adultPlus', 'adultCount', 'adultsInput', 1, 10);
+      setupStepper('childMinus', 'childPlus', 'childCount', 'childrenInput', 0, 6);
+
+      document.getElementById('bookingForm')?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        // 之後可接上真實訂房系統
+        alert('查詢中：\n入住 ' + checkin.value + '\n退房 ' + checkout.value + '\n成人 ' + document.getElementById('adultsInput').value + '　小童 ' + document.getElementById('childrenInput').value);
+      });
+
+      // Scroll fade-in
+      const elements = document.querySelectorAll('.fade-in');
+      const heroFades = document.querySelectorAll('.hero .fade-in');
+      heroFades.forEach(el => el.classList.add('is-visible'));
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('is-visible');
+              observer.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.12,
+          rootMargin: '0px 0px -40px 0px'
+        }
+      );
+
+      elements.forEach((el) => {
+        if (!el.closest('.hero')) {
+          observer.observe(el);
+        }
+      });
+    })();
+  </script>
+</body>
+</html>
