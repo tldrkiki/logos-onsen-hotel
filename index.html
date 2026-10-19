@@ -82,20 +82,38 @@
       align-items: center;
       justify-content: space-between;
     }
-   .logo {
+    .logo {
       display: flex;
       align-items: center;
       line-height: 0;
+      flex-shrink: 0;
     }
     .logo img {
       height: 40px;
       width: auto;
+      max-width: 180px;
+      object-fit: contain;
       display: block;
       transition: filter 0.3s;
     }
     /* 白 logo 在淺色導覽列時反轉成深色 */
     nav.scrolled .logo img {
       filter: invert(1) brightness(0.2);
+    }
+    .nav-links {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      gap: 1.75rem;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .nav-links li {
+      list-style: none;
+      margin: 0;
+      padding: 0;
     }
     .nav-links a {
       font-size: 0.82rem;
@@ -104,6 +122,8 @@
       color: rgba(247,245,240,0.8);
       font-weight: 500;
       transition: color 0.25s;
+      white-space: nowrap;
+      text-decoration: none;
     }
     .nav-links a:hover { color: #fff; }
     nav.scrolled .nav-links a { color: var(--text-muted); }
@@ -111,11 +131,12 @@
     .nav-cta {
       background: var(--accent) !important;
       color: #fff !important;
-      padding: 0.55rem 1.25rem;
-      border-radius: 999px;
+      padding: 0.55rem 1.25rem !important;
+      border-radius: 999px !important;
       letter-spacing: 0.06em !important;
       font-size: 0.8rem !important;
       transition: background 0.25s, transform 0.2s !important;
+      display: inline-block !important;
     }
     .nav-cta:hover {
       background: var(--accent-hover) !important;
